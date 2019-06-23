@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.bootcss.com/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/customer.css">
+  <link rel="stylesheet" href="/css/gwc.css">
+  <script src="/js/jquery-1.11.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+  <script src="/js/gwc.js"></script>
+  <title>香菇街---你的剁手街</title>
+</head>
+<body>
+  <div class="top-nav">
+    <div class="container clear-float">
+      <div class="fl">
+        <a class="item" href="/customerPage">首页</a>
+      </div>
+      <div class="fr">
+        <a class="item" href="/customerOrder">我的订单</a>
+        <a class="item" href="/customerCart">我的购物车</a>
+        <a class="item" href="/customerLogin">登录</a>
+        <a class="item" href="/customerReg">注册</a>
+      </div>
+    </div>
+  </div>
+<div class="header ">
+        <div class="container clear-float">
+          <div class="col-2 logo">
+            <img src="/images/logo.png" alt="">
+          </div>
+          <div class="col-5 search-bar">
+            <form action="customerSearch" method="POST">
+            <input type="text" class="col-8" name="search_box"></input>
+            <button class="col-2" id="search" type="submit"  >搜索</button>
+          </form>
+          </div>
+        </div>
+</div>
+<div id="wrapper">
+        <div id="content">
+            <div class="goods_lists">
+                <ul id="listbox" class="list">
+                    <% for(var i=0;i<data.length;i++){ %>
+                    <li>
+                        <div class="checkbox">
+                            <div class='c_xz'><img src='/images/checkbox.png' width='12' height='12'></div>
+                </div>
+                <a class='door' href='javascript:void(0);'><img src='/images/list2.jpg' width='74' height='74' alt='书籍图片' /></a>
+                          <!--注意此处的标签是a！ href="javascript:void(0);"-->
+                          <div class="l_right">
+                            <h3 class='l_r_desc'>《<%= data[i].title %>》</h3>
+                              <p class="price">单价:￥<span class="money" ><%= data[i].sprice*data[i].discount %></span></p>
+                              <p class="old_price">￥<%= data[i].sprice %></p>
+                              <p class="orderId" style="display: none"><%= data[i].orderId %></p>
+                              <div class="l_bot">
+                                <p>数量：</p>
+                                <input type="text" data-max="10" class="num" value="<%= data[i].quantity %>" />
+                              </div>
+                          </div>
+                       </li>
+                       <% } %>
+                    </ul>
+                </div>
+                <div class="checkout">
+                  <div class="c_left">合计:<span id="sum" >￥ 0.00</span>	</div>
+                  <!--span这里的id是为了在js中计算替换 所以span还是要有个初始值0-->
+                  <a href="javascript:">   <!--a在div之前！！！-->
+                  <button id="confirm" class="c_right"  type="submit" >下单（<span id="count">0</span>）</button>
+                  </a>
+                 </div>
+             </div>
+         </div> 
+      </body> 
+<script>
+        // import {discount} from '../common.js';
+    var http ;
+    $("#confirm").click(function(){
+      var carts=[];
+      $("#listbox").find("li").each(function(){//each 对每一个找到的li都这样做
+        var flag=$(this).find(".c_xz").is(":visible");	
+        if(flag){
+          var orderId=$(this).find(".orderId").text();//这里的标签是p 要用
+          carts.push({ orderId: parseInt(orderId)});
+      //http.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=utf-8");
+      };
+      });
+    $.ajax({
+                    type : "POST",
+                    url : "/orderConfirm",
+                    data : JSON.stringify(carts),
+                    contentType: 'application/json',
+                });
+                alert("下单成功！");
+        });
+    </script>
+</html>

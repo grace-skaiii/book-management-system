@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/normalize/8.0.1/normalize.min.css">
+    <link href="/media/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+    <link href="/media/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/media/css/style-metro.css" rel="stylesheet" type="text/css" />
+    <link href="/media/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/media/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/media/css/default.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="/media/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="/media/css/select2_metro.css" />
+    <link rel="stylesheet" href="/media/css/DT_bootstrap.css" />
+    <!-- END PAGE LEVEL STYLES -->
+    <link rel="shortcut icon" href="/media/image/favicon.ico" />
+    <link rel="stylesheet" href="/css/all.css">
+    <link rel="stylesheet" href="/css/blog.css">
+    <script src="/js/jquery.js"></script>
+    <style>
+        /* #menu-checkbox:checked ~ .nav > a,
+    #menu-checkbox:checked ~ .tag-list >a{
+        display: block;
+    }
+    #menu-checkbox{
+        display: none;
+    } */
+        #menu {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 22px;
+            font-weight: 100;
+            color: rgba(255, 255, 255, .5)
+        }
+        .page-container {
+            color: #000;
+            font-size: 18px;
+        }
+        .edit {
+            color: #444;
+        }
+        .delete {
+            color: #444;
+        }
+    </style>
+    <title>查看其它用户</title>
+</head>
+<body>
+    <div class="side-bar">
+        <!-- <label for="menu-checkbox" id="menu">菜单</label>
+    <input type="checkbox" id="menu-checkbox"> -->
+        <div class="header">
+            <a href="/SuperPage" class="logo"><%= id %></a>
+            <div class="intro">hello~</div>
+        </div>
+        <div class="nav">
+            <a href="/otherAdmin" id="other" class="item">其它用户</a>
+            <a href="/updateBook" id="update" class="item">维护书库</a>
+            <a href="/importBook" id="import" class="item">图书进货</a>
+            <a href="/payBook" id="pay" class="item">图书付款/退货</a>
+            <a href="/deliverBook" id="deliver" class="item">图书发货</a>
+            <a href="/finance" id="finance" class="item">收支状况</a>
+        </div>
+    </div>
+    <div class="page-container row-fluid ">
+        <!-- BEGIN SIDEBAR -->
+        <!-- END SIDEBAR -->
+        <!-- BEGIN PAGE -->
+        <div class="page-content">
+            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <!-- BEGIN PAGE CONTAINER-->
+            <div class="container-fluid">
+                <!-- BEGIN PAGE HEADER-->
+                <div class="row-fluid">
+                    <div class="span12">
+                        <!-- BEGIN STYLE CUSTOMIZER -->
+                        <!-- END BEGIN STYLE CUSTOMIZER -->
+                        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                        <h3 class="page-title">
+                            其他用户 <small> 删除 · 添加<small>
+                        </h3>
+                        <!-- END PAGE TITLE & BREADCRUMB-->
+                    </div>
+                </div>
+                <!-- END PAGE HEADER-->
+                <!-- BEGIN PAGE CONTENT-->
+                <div class="row-fluid">
+                    <div class="span12">
+                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                        <div class="portlet box blue">
+                            <div class="portlet-body">
+                                <div class="clearfix">
+                                    <div class="btn-group">
+                                        <button id="sample_editable_1_new" class="btn green">
+                                            Add New <i class="icon-plus"></i>
+                                        </button>
+                                        
+                                    </div>
+                                    <form action="otherAdmin" class="btn-group pull-right form-inline" method="POST">
+                                        <input placeholder="请输入职工号"  style="height:34px" name="jid" type="text">
+                                        <button class="btn btn-default" type="submit" style="background: #35aa47;color:#eee">搜索
+                                        </button>   
+                                </form>
+                                </div>
+                                <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                                    <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>姓名</th>
+                                            <th>职工号</th>
+                                            <th>性别</th>
+                                            <th>年龄</th>
+                                            <th>注册日期</th>
+                                            <!-- <th>编辑</th>
+                                                <th>删除</th>
+     -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% for(var i=0;i<data.length;i++){ %>
+                                        <tr class="">
+                                            <td><%= data[i].id %></td>
+                                            <td><%= data[i].username %></td>
+                                            <td><%= data[i].jid %></td>
+                                            <td><%= data[i].gender %></td>
+                                            <td><%= data[i].age %></td>
+                                            <td><%= data[i].regDay %></td>
+                                            <td><a class="delete" href="javascript:;"
+                                                    onclick="deleteRow(this)">Delete</a></td>
+                                        </tr>
+                                        <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- END EXAMPLE TABLE PORTLET-->
+                    </div>
+                </div>
+                <!-- END PAGE CONTENT -->
+            </div>
+            <!-- END PAGE CONTAINER-->
+        </div>
+    </div>
+</body>
+<script>
+    //main function to initiate the module
+    $('#sample_editable_1_new').click(function (e) {
+        e.preventDefault();
+        var tb = document.getElementById("sample_editable_1");
+        var newTr = tb.insertRow(1);
+        var newTd1 = newTr.insertCell(); //表示在添加的行上添加第一格
+        newTd1.innerHTML = "<input type='text' name='id' style='width:120px' placeholder='id' />";
+        var newTd2 = newTr.insertCell(); //表示在添加的行上添加第一格
+        newTd2.innerHTML = "<input type='text' name='username' style='width:120px' placeholder='username'/>";
+        var newTd3 = newTr.insertCell(); //表示在添加的行上添加第一格
+        newTd3.innerHTML = "<input type='text' name='zgh' style='width:120px' placeholder='职工号'/>";
+        var newTd4 = newTr.insertCell(); //表示在添加的行上添加第一格
+        newTd4.innerHTML = "<input type='text' name='gender' style='width:120px' placeholder='性别'/>";
+        var newTd5 = newTr.insertCell(); //表示在添加的行上添加第一格
+        newTd5.innerHTML = "<input type='text' name='age' style='width:80px' placeholder='年龄'/>";
+        var newTd6 = newTr.insertCell(); //表示在添加的行上添加第一格
+        newTd6.innerHTML = "<input type='text' name='pwd' style='width:230px'  placeholder='密码'/>";
+        var newTd7 = newTr.insertCell(); //表示在添加的行上添加第一格
+        newTd7.innerHTML = "<input type='button' name='save'  onclick='saveNew(this);' value='Save'/>";
+    });
+    function saveNew(ob){
+        var id=$("input[name='id']").val()
+        , username=$("input[name='username']").val()
+        , zgh=$("input[name='zgh']").val()
+        , gender=$("input[name='gender']").val()
+        , age=$("input[name='age']").val()
+        , pwd=$("input[name='pwd']").val();
+        var carts={id:id,username:username,zgh:zgh,gender:gender,age:parseInt(age),pwd:pwd};
+        $.ajax({
+            type: "POST",
+            url: "/addAdmin",
+            data: JSON.stringify(carts),
+            contentType: 'application/json',
+        });
+alert('添加新用户成功！');
+    };
+    function deleteRow(id) {
+        //选中编辑按钮的时候,把这行指定的几个td变成文本框
+        var b = $(id).parent(); //td
+        var a = b.siblings(); //td的兄弟节点
+        var jid = a[2].innerText;
+        $.ajax({
+            type: "POST",
+            url: "/deleteAdmin",
+            data: JSON.stringify({jid:jid}),
+            contentType: 'application/json',
+        })
+        alert('删除用户成功！');
+    };
+    function search(id) {
+        //选中编辑按钮的时候,把这行指定的几个td变成文本框
+        var jid = $(id).prev().val(); 
+        $.ajax({
+            type: "POST",
+            url: "/searchAdmin",
+            data: JSON.stringify({jid:jid}),
+            contentType: 'application/json',
+        });
+    };
+
+</script>
+</html>

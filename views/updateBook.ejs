@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/normalize/8.0.1/normalize.min.css">
+    <link href="/media/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+    <link href="/media/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/media/css/style-metro.css" rel="stylesheet" type="text/css" />
+    <link href="/media/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/media/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/media/css/default.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="/media/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="/media/css/select2_metro.css" />
+    <link rel="stylesheet" href="/media/css/DT_bootstrap.css" />
+    <!-- END PAGE LEVEL STYLES -->
+    <link rel="shortcut icon" href="/media/image/favicon.ico" />
+    <link rel="stylesheet" href="/css/all.css">
+    <link rel="stylesheet" href="/css/blog.css">
+    <script src="/js/jquery.js"></script>
+    <style>
+        /* #menu-checkbox:checked ~ .nav > a,
+    #menu-checkbox:checked ~ .tag-list >a{
+        display: block;
+    }
+    #menu-checkbox{
+        display: none;
+    } */
+        #menu {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 22px;
+            font-weight: 100;
+            color: rgba(255, 255, 255, .5)
+        }
+        .page-container {
+            color: #000;
+            font-size: 18px;
+        }
+        .edit {
+            color: #444;
+        }
+        .delete {
+            color: #444;
+        }
+    </style>
+    <title>维护书库</title>
+</head>
+<body>
+    <div class="side-bar">
+        <!-- <label for="menu-checkbox" id="menu">菜单</label>
+    <input type="checkbox" id="menu-checkbox"> -->
+        <div class="header">
+            <a href="/SuperPage" class="logo"><%= id %></a>
+            <div class="intro">hello~</div>
+        </div>
+        <div class="nav">
+            <a href="/otherAdmin" id="other" class="item">其它用户</a>
+            <a href="/updateBook" id="update" class="item">维护书库</a>
+            <a href="/importBook" id="import" class="item">图书进货</a>
+            <a href="/payBook" id="pay" class="item">图书付款/退货</a>
+            <a href="/deliverBook" id="deliver" class="item">图书发货</a>
+            <a href="/finance" id="finance" class="item">收支状况</a>
+        </div>
+    </div>
+    <div class="page-container row-fluid ">
+        <!-- BEGIN SIDEBAR -->
+        <!-- END SIDEBAR -->
+        <!-- BEGIN PAGE -->
+        <div class="page-content">
+            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <!-- BEGIN PAGE CONTAINER-->
+            <div class="container-fluid">
+                <!-- BEGIN PAGE HEADER-->
+                <div class="row-fluid">
+                    <div class="span12">
+                        <!-- BEGIN STYLE CUSTOMIZER -->
+                        <!-- END BEGIN STYLE CUSTOMIZER -->
+                        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                        <h3 class="page-title">
+                            书库 <small>编辑 · 添加<small>
+                        </h3>
+                        <!-- END PAGE TITLE & BREADCRUMB-->
+                    </div>
+                </div>
+                <!-- END PAGE HEADER-->
+                <!-- BEGIN PAGE CONTENT-->
+                <div class="row-fluid">
+                    <div class="span12">
+                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                        <div class="portlet box blue">
+                            <div class="portlet-body">
+                                <div class="clearfix">
+                                    <div class="btn-group">
+                                        <button id="sample_editable_1_new" class="btn green">
+                                            Add New <i class="icon-plus"></i>
+                                        </button>
+                                    </div>
+                                    <form action="updateBook" class="btn-group pull-right form-inline" method="POST">
+                                        <input placeholder="请输入isbn/书名/作者/出版社/种类"  style="height:34px;width:250px" name="key" type="text">
+                                        <button class="btn btn-default" type="submit" style="background: #35aa47;color:#eee">搜索
+                                        </button>   
+                                </form>
+                                </div>
+                                <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                                    <thead>
+                                        <tr>
+                                            <th>isbn</th>
+                                            <th>书名</th>
+                                            <th>作者</th>
+                                            <th>出版社</th>
+                                            <th>类型</th>
+                                            <th>库存</th>
+                                            <th>进价</th>
+                                            <th>售价</th>
+                                            <th>未付款</th>
+                                            <th>编辑</th>
+                                            <!-- <th>编辑</th>
+                                                <th>删除</th>
+     -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% for(var i=0;i<data.length;i++){ %>
+                                        <tr class="">
+                                            <td><%= data[i].isbn %></td>
+                                            <td><%= data[i].title %></td>
+                                            <td><%= data[i].author %></td>
+                                            <td><%= data[i].publisher %></td>
+                                            <td><%= data[i].categoryName %></td>
+                                            <td><%= data[i].inventory %></td>
+                                            <td><%= data[i].iprice %></td>
+                                            <td><%= data[i].sprice %></td>
+                                            <td><%= data[i].unpaid %></td>
+                                            <td><a class="edit" href="javascript:;"
+                                                    onclick="editRow(this)">Edit</a></td>
+                                        </tr>
+                                        <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- END EXAMPLE TABLE PORTLET-->
+                    </div>
+                </div>
+                <!-- END PAGE CONTENT -->
+            </div>
+            <!-- END PAGE CONTAINER-->
+        </div>
+    </div>
+</body>
+<script>
+    //main function to initiate the module
+    $('#sample_editable_1_new').click(function (e) {
+        e.preventDefault();
+        var tb = document.getElementById("sample_editable_1");
+        var newTr = tb.insertRow(1);
+        var newTd1 = newTr.insertCell(); //表示在添加的行上添加第一格
+        newTd1.innerHTML = "<input type='text' name='isbn'  style='width:120px' placeholder='isbn' />";
+        var newTd2 = newTr.insertCell(); //表示在添加的行上添加第一格
+        newTd2.innerHTML = "<input type='text' name='title' style='width:120px' placeholder='title'/>";
+        var newTd3 = newTr.insertCell(); //表示在添加的行上添加第一格
+        newTd3.innerHTML = "<input type='text' name='author' style='width:120px' placeholder='author'/>";
+        var newTd4 = newTr.insertCell(); //表示在添加的行上添加第一格
+        newTd4.innerHTML = "<input type='text' name='publisher' style='width:120px' placeholder='publisher'/>";
+        var newTd5 = newTr.insertCell(); //表示在添加的行上添加第一格
+        newTd5.innerHTML = "<input type='text' name='category' style='width:50px' placeholder='category'/>";
+        var newTd6 = newTr.insertCell(); //表示在添加的行上添加第一格
+        newTd6.innerHTML = "<input type='text' name='inventory' readonly='true' style='width:50px' value='0' placeholder='inventory'/>";
+        var newTd7 = newTr.insertCell(); //表示在添加的行上添加第一格
+        newTd7.innerHTML = "<input type='text' name='iprice'  style='width:50px'  placeholder='进价'/>";
+        var newTd8 = newTr.insertCell(); //表示在添加的行上添加第一格
+        newTd8.innerHTML = "<input type='text' name='sprice' readonly='true' style='width:50px' value='/' />";
+        var newTd9 = newTr.insertCell(); //表示在添加的行上添加第一格
+        newTd9.innerHTML = "<input type='text' name='unpaid'  style='width:50px' placeholder='未付款' />";
+        var newTd10 = newTr.insertCell(); //表示在添加的行上添加第一格
+        newTd10.innerHTML = "<input type='button' name='save'  onclick='saveNew(this);' value='保存'/>";
+    });
+    function saveNew(ob){
+        var isbn=$("input[name='isbn']").val()
+        , title=$("input[name='title']").val()
+        , author=$("input[name='author']").val()
+        , publisher=$("input[name='publisher']").val()
+        , category=$("input[name='category']").val()
+        , iprice=$("input[name='iprice']").val()
+        , unpaid=$("input[name='unpaid']").val()
+        var carts={isbn:isbn,title:title,author:author,publisher:publisher,category:category,iprice:parseFloat(iprice),unpaid:parseInt(unpaid)};
+        $.ajax({
+            type: "POST",
+            url: "/addBook",
+            data: JSON.stringify(carts),
+            contentType: 'application/json',
+        });
+        alert('添加成功！')
+    };
+    function editRow(id) {
+        //选中编辑按钮的时候,把这行指定的几个td变成文本框
+        var b = $(id).parent(); //td
+        var a = b.siblings(); //td的兄弟节点
+        if(a[1].children.length===0){
+       a[1].innerHTML="<input type='text' id='title' style='width:120px' value='"+a[1].innerText+"'/>";
+    }
+    if(a[2].children.length===0){
+       a[2].innerHTML="<input type='text' id='author' style='width:120px' value='"+a[2].innerText+"'/>";
+    }
+    if(a[3].children.length===0){
+       a[3].innerHTML="<input type='text' id='publisher' style='width:120px' value='"+a[3].innerText+"'/>";
+    }
+    if(a[4].children.length===0){
+       a[4].innerHTML="<input type='text' id='category' style='width:120px'value='"+a[4].innerText+"'/>";
+    }
+    if(a[6].children.length===0){
+       a[6].innerHTML="<input type='text' id='iprice' style='width:50px' value='"+a[6].innerText+"'/>";
+    }
+    if(a[7].children.length===0){
+       a[7].innerHTML="<input type='text' id='sprice' style='width:50px' value='"+a[7].innerText+"'/>";
+    }
+    if(a[8].children.length===0){
+       a[8].innerHTML="<input type='text' id='unpaid' style='width:50px' value='"+a[8].innerText+"'/>";
+    }
+    b[0].innerHTML="<input id='"+id+"' type='button' onclick='saveEdit(this);' value='保存'/>";
+}
+function saveEdit(ob){
+    var b = $(ob).parent(); //td
+        var a = b.siblings(); //td的兄弟节点
+        var isbn=a[0].innerText
+        , title=$('#title').val()
+        , author=$('#author').val()
+        , publisher=$('#publisher').val()
+        , category=$('#category').val()
+        , iprice=$('#iprice').val()
+        , sprice=$('#sprice').val()
+        , unpaid=$('#unpaid').val();
+        var carts={isbn:isbn,title:title,author:author,publisher:publisher,category:category,iprice:parseFloat(iprice),sprice:parseFloat(sprice),unpaid:parseInt(unpaid)};
+console.log(JSON.stringify(carts));
+        $.ajax({
+            type: "POST",
+            url: "/editBook",
+            data: JSON.stringify(carts),
+            contentType: 'application/json',
+        });
+        alert('修改成功！');
+    };
+</script>
+</html>

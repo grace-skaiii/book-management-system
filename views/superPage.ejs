@@ -1,0 +1,61 @@
+<%- include('sidebar') -%>
+    <div class="main">
+        <div class="wrap wrap-sm">
+            <div class="header">
+                <h1>编辑资料</h1>
+            </div>
+            <form id="information" action="">
+                <div class="input-wrap">
+                <label for="">账号</label>
+                <input type="text" id="id" readOnly="true" class="input-control" value="<%= data[0].id %>" data-rule="maxlength:20|minlength:2|required:true">
+                <div id="id-input-error" class="input-error" style="display:none">账号格式有误</div>
+                <div id="id-input-exist" class="input-error" style="display:none">账号已存在</div>
+                </div>
+                <div class="input-wrap">
+                <label for="">密码</label>
+                <input type="password" id="password" class="input-control" value='<%= data[0].password %>'  data-rule="maxlength:20|minlength:6|required:true">
+                <div id="password-input-error" class="input-error" style="display: none">密码格式有误</div>
+                </div>
+                <div class="input-wrap">
+                    <label for="">真实姓名</label>
+                    <input type="text" id="username" class="input-control" value='<%= data[0].username %>'  data-rule='pattern:"^[a-zA-Z]*$"|maxlength:20|minlength:3|required:true'>
+                    <div id="username-input-error" class="input-error" style="display: none">真实姓名格式有误</div>
+                </div>
+                <div class="input-wrap">
+                <label for="">工号</label>
+                <input type="text" id="jid" readOnly="true" class="input-control"  value='<%= data[0].jid %>' data-rule="maxlength:20|minlength:6|required:true">
+                <div id="jid-input-error" class="input-error" style="display: none">工号格式有误</div>
+                </div>
+                <div class="input-wrap">
+                <label for="">性别</label>
+                <input type="text" id="gender" value='<%= data[0].gender %>' class="input-control"  > 
+                </div>
+                <div class="input-wrap">
+                <label for="">年龄</label>
+                <input type="text" id="age" class="input-control"  value='<%= data[0].age %>' data-rule="min:18">
+                <div id="age-input-error" class="input-error" style="display:none">年龄格式有误</div>
+                </div>
+                <button class="button-control btn-block" type="button" id='edit' onclick="Edit(this)">修改</button>
+            </form>
+            </div>
+    </div>
+<!-- </div> -->
+</body>
+<script>
+function Edit(ob){
+    var id=$(ob).parent().find('div').find('#id').val(),
+     pwd=$(ob).parent().find('div').find('#password').val(),
+     username=$(ob).parent().find('div').find('#username').val(),
+     gender=$(ob).parent().find('div').find('#gender').val(),
+     age=$(ob).parent().find('div').find('#age').val(),
+     carts={id:id,pwd:pwd,username:username,gender:gender,age:parseInt(age),};
+    $.ajax({
+      type : "POST",
+      url : "/editAdmin",
+      data : JSON.stringify(carts),
+      contentType: 'application/json',
+  });
+  alert('修改成功！');
+  }
+</script>
+</html>

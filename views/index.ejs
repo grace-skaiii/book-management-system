@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>初始界面</title>
+    <link href="/css/bootstrap.css" rel="stylesheet"></head>
+    <script src="/js/jquery.js"></script>
+    <style>
+            .container-small{
+                max-width: 200px;
+            }
+            .btn{
+                margin:20px;
+            }
+            div{
+                text-align: center;
+            }
+            </style>
+<body>
+    <div class="container container-small">
+    <div class="form-group align="center">
+            <button class="btn btn-primary btn-block" id="user" type="button" onclick="window.location.href='/customerLogin'">我是顾客</button> 
+            <button class="btn btn-primary btn-block" id="admin" type="button" onclick="window.location.href='/adminLogin'">我是管理员</button> 
+    </div>
+</div>
+</body>
+<script src="../js/route.js"></script>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.bootcss.com/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/customer.css">
+  <script src="/js/jquery.js"></script>
+  <script src="/js/bootstrap.js"></script>
+  <title>香菇街---你的剁手街</title>
+</head>
+<body>
+  <div class="top-nav">
+    <div class="container clear-float">
+      <div class="fl">
+        <a class="item" href="#">首页</a>
+      </div>
+      <div class="fr">
+        <a class="item" href="/customerOrder">我的订单</a>
+        <a class="item" href="/customerCart">我的购物车</a>
+        <a class="item" href="/customerLogin">登录</a>
+        <a class="item" href="/customerReg">注册</a>
+      </div>
+    </div>
+  </div>
+<div class="header ">
+    <div class="container clear-float">
+      <div class="col-2 logo">
+        <img src="/images/logo.png" alt="">
+      </div>
+      <div class="col-5 search-bar">
+        <form action="customerSearch" method="POST">
+        <input type="text" class="col-8" name="search_box" placeholder="想看什么书？（请输入书名或者作者）">
+        <button class="col-2" id="search" type="submit"  >搜索</button>
+      </form>
+      </div>
+      <div class="col-2">
+          <div class="auth clear-float">
+              <h2 class="avatar"> 登录成功，欢迎剁手~</h2>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-promote ">
+    <div class="container clear-float">
+      <div class="col-2 cat">
+        <div class="item"><a href="/history" style="color: white">历史</a></div>
+        <div class="item"><a href="#"  style="color: white">政治</a></div>       
+        <div class="item"><a href="#"  style="color: white">文学</a></div> 
+        <div class="item"><a href="#"  style="color: white">人物</a></div>   
+        <div class="item"><a href="#"  style="color: white">小说</a></div>   
+        <div class="item"><a href="#"  style="color: white">军事</a></div>   
+        <div class="item"><a href="#"  style="color: white">教材</a></div>   
+        <div class="item"><a href="#"  style="color: white">国内</a></div>   
+        <div class="item"><a href="#"  style="color: white">美洲</a></div>       
+        <div class="item"><a href="#"  style="color: white">欧洲</a></div>       
+        <div class="item"><a href="/japan" style="color: white">日本</a></div>  
+      </div>    
+      <div  id="mainContents" class="col-6 ">
+        <div class="main-slide">
+          <img src="https://www.dummyimage.com/2000x900/6ac1d6/fff" alt="dasdas">
+        </div>
+        <div class="sub-slide col-5">
+          <img src="https://www.dummyimage.com/1000x550/cdea95/fff" alt="">
+        </div>
+        <div class="sub-slide col-5">
+          <img src="https://www.dummyimage.com/1000x550/dc9fdc/fff" alt="">
+        </div>
+      </div>
+      <div class="col-2 info">
+        <div class="anno">
+          <div class="title" style="text-align:center">公告</div>
+          <div class="conten">nd asdn dand danda dasknda daskd</div>
+          <div class="conten">nd asdn dand danda dasknda daskd</div>
+          <div class="conten">nd asdn dand danda dasknda daskd</div>
+          <div class="conten">nd asdn dand danda dasknda daskd</div>
+          <div class="conten">nd asdn dand danda dasknda daskd</div>
+          <div class="conten">nd asdn dand danda dasknda daskd</div>
+          <div class="conten">nd asdn dand danda dasknda daskd</div>
+          <div class="conten">nd asdn dand danda dasknda daskd</div>
+          <div class="conten">nd asdn dand danda dasknda daskd</div>
+          <div class="conten">nd asdn dand dand</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot clear-float">
+      <div class="container ">
+        <a href="#" class="">item</a>
+        <a href="#" class="">item</a>
+        <a href="#" class="">item</a>
+        <a href="#" class="">item</a>
+        <div>dajdd dandsd @asdnnd sandna dsand NN </div>
+      </div>
+    </div>
+  </body>
+  <!-- <script>
+      function show(ob){
+                 var href = $(ob).data("id");
+                 var category=$(ob).text();
+                 $('#mainContents').empty();
+                 $.ajax({
+                        type : "POST",
+                        url : "/categoryIndex",
+                        data : JSON.stringify({href,category}),
+                        contentType: 'application/json',
+                        success:function(){
+                          window.location.href = category+'.html';
+                        }
+                    });
+            }
+      </script> -->
+</html>
+  

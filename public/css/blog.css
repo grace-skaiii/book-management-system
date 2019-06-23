@@ -1,0 +1,101 @@
+body {
+  background: #777;
+  line-height: 1.7;/*文字间距*/
+  width:100%;
+  text-align:center;
+margin-left:auto;
+margin-right:auto;
+}
+/* .container{
+  width:80%;
+  margin:100px,100px;
+} */
+a {
+  text-decoration: none;
+}
+a, body {
+  color: #eee;
+}
+#menu{
+  display: none;
+}
+.side-bar {
+  width: 20%;
+  position: fixed;
+  float: left;
+}
+.side-bar > * {
+  /*给所有旗下元素*/
+  margin: 10px 20px;
+}
+.side-bar .nav a,
+.side-bar .tag-list a{
+  padding:10px;
+  color: #888;
+  -webkit-transition:color 300ms ;/*颜色渐变速度*/
+  -o-transition:color 300ms  ;
+  transition:color 300ms ;
+  display: block;
+}
+.side-bar .nav a{
+  font-weight: 700;
+  font-size: 150%;
+}
+.side-bar .nav a:hover,
+.side-bar .tag-list a:hover{
+  color: #eee;
+}
+.main {
+  text-align: left;
+  width: 80%;
+  color: #454545;
+  padding-left: 10px;
+  padding-right: 10px;
+  float: right;
+}
+.intro{
+  font-size: 20px;
+}
+.header .logo {
+  border: 2px solid #eee;
+  padding: 10px 30px;
+  font-size: 60px;
+  display: inline-block;
+  margin-bottom: 10px;
+  line-height: 1;
+  border-radius: 5px;
+}
+.article-list,.article{
+  background: #fff;
+  margin:10px 0;
+  margin-right: 23%;
+  padding:5px 20px;
+  -webkit-box-shadow: 0 0 20px 3px rgba(0,0,0,.2);
+  box-shadow: 0 0 10px 3px rgba(0,0,0,.2);
+}
+.article-list .item .title,.article .title{
+  font-size:30px;
+  font-weight: 700;
+  color: #555;
+}
+.article-list .item .status,.article .status{
+  font-size:15px;
+  font-weight:500;
+  color: #aaa;
+}
+.article-list .item{
+  margin-bottom: 20px;
+}
+.article-list .item > *,.article >*{
+  margin:10px 0;
+}
+#information input{
+  color: #000;
+}
+#information label{
+  color:#000;
+  font-size: 15px;
+}
+#edit{
+  width:100%;
+}

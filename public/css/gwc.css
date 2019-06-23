@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0;padding:0;}
+a{text-decoration:none;}/*默认下划线*/
+ul li{float:left;list-style:none;}/*list-style默认是小圆点*/
+#wrapper{width: 640px;height: 370px;margin: 50px auto;font-size: 12px;font-family: "微软雅黑";}
+#wrapper #content{float:left;width:100%}
+#wrapper #content .goods_lists{float:left;width:100%}
+#wrapper #content .goods_lists .list{width:96%;padding: 0 2%;} /*id设在全局即只会用到提到一次 class设在会提到多次的元素*/
+#wrapper #content .goods_lists .list li{width:100%;height:100px;margin-top:15px;border:1px solid red;float:left;background: #fffefe;}/*wrapper content 就用一次所以用id 而.goods_list下面有很多？？？？*//*从li之后大部分元素都要float:left*/
+.checkbox{width: 12px;height: 12px;position: relative;border:1px solid black ;float: left;margin-top: 45px;margin-left: 2%;z-index=-1;}/* 此处的position!方便子元素覆盖*/
+ .checkbox .c_xz{position: absolute;top: -1px;left: 0px;width: 12px;height: 12px;display: none;}
+/*top:距包含其的元素的上边缘的距离；display:none隐藏*/
+.goods_lists .list li .door{float: left;width: 74px;height: 74px;margin: 12px 0 0 3%;border: 1px solid #999;}
+/*为什么要door？作为超链接的属性 来装图片*/
+.goods_lists .list li .l_right{width: 62%;height: 74px;float: left;margin-top: 12px;padding-left: 2%}
+.goods_lists .list li .l_@charset "utf-8";
+/* CSS Document */
+*{margin:0;padding:0;}
+a{text-decoration:none;}/*默认下划线*/
+ul li{float:left;list-style:none;}/*list-style默认是小圆点*/
+#wrapper{width: 640px;height: 370px;margin: 50px auto;font-size: 12px;font-family: "微软雅黑";}
+#wrapper #content{float:left;width:100%}
+#wrapper #content .goods_lists{float:left;width:100%}
+#wrapper #content .goods_lists .list{width:96%;padding: 0 2%;} /*id设在全局即只会用到提到一次 class设在会提到多次的元素*/
+#wrapper #content .goods_lists .list li{width:100%;height:100px;margin-top:15px;border:1px solid red;float:left;background: #fffefe;}/*wrapper content 就用一次所以用id 而.goods_list下面有很多？？？？*//*从li之后大部分元素都要float:left*/
+.goods_lists .list li .checkbox{width: 12px;height: 12px;position: relative;border:1px solid black ;float: left;margin-top: 45px;margin-left: 2%;z-index=-1;}/* 此处的position!方便子元素覆盖*/
+.goods_lists .list li .checkbox .c_xz{position: absolute;top: -1px;left: 0px;width: 12px;height: 12px;display: none;}
+/*top:距包含其的元素的上边缘的距离；display:none隐藏*/
+.goods_lists .list li .door{float: left;width: 74px;height: 74px;margin: 12px 0 0 3%;border: 1px solid #999;}
+/*为什么要door？作为超链接的属性 来装图片*/
+.goods_lists .list li .l_right{width: 62%;height: 74px;float: left;margin-top: 12px;padding-left: 2%}
+.goods_lists .list li .l_right .l_r_desc{max-width: 100%;overflow: hidden;color: #555; line-height:22px;height: 22px;}
+.goods_lists .list li .l_right .price{color: #555;}
+.goods_lists .list li .l_right .price span{color: #c7000a;}/*span常见于一行内文字样式不同*/
+.goods_lists .list li .l_right .old_price{text-decoration: line-through;color: #555}/*line-through*/
+.goods_lists .list li .l_right .l_bot{width: 66%;height:20px;float: right; color: #555;}/*改变width 和 float：right*/
+.goods_lists .list li .l_right .l_bot p{float: left;padding-top: 2px;}
+.goods_lists .list li .l_right .l_bot input{float: left;width:17%;height: 14px;text-align: center;border:1px solid #999;margin-top: 3px; }/*有input的地方 要注意 text-align*/
+.goods_lists .list li .l_right .l_bot a{float: left; margin: 3px 3%;}
+.goods_lists .list li .l_right .l_bot .rubbish{margin-left: 5%;}
+#wrapper #content .checkout{float: left;width: 100%;height: 50px;background: #fffefe;border-top:1px solid #999;border-bottom: 1px solid #999;margin-top: 20px; }
+#wrapper #content .checkout .c_left{float: left;width: 47%;height: 35px;font-size: 12px;color: #555;padding-left: 3%;line-height: 50px;}
+#wrapper #content .checkout .c_left span{color: #c7000a;}
+#wrapper #content .checkout .c_right{float: left;width: 50%;height: 50px;background: #c7000a;color: #fefdfd;text-align: center;font-size: 14px;line-height: 50px;}
+right .l_r_desc{max-width: 100%;overflow: hidden;color: #555; line-height:22px;height: 22px;}
+.goods_lists .list li .l_right .price{color: #555;}
+.goods_lists .list li .l_right .price span{color: #c7000a;}/*span常见于一行内文字样式不同*/
+.goods_lists .list li .l_right .old_price{text-decoration: line-through;color: #555}/*line-through*/
+.goods_lists .list li .l_right .l_bot{width: 66%;height:20px;float: right; color: #555;}/*改变width 和 float：right*/
+.goods_lists .list li .l_right .l_bot p{float: left;padding-top: 2px;}
+.goods_lists .list li .l_right .l_bot input{float: left;width:17%;height: 14px;text-align: center;border:1px solid #999;margin-top: 3px; }/*有input的地方 要注意 text-align*/
+.goods_lists .list li .l_right .l_bot a{float: left; margin: 3px 3%;}
+.goods_lists .list li .l_right .l_bot .rubbish{margin-left: 5%;}
+ .checkout{float: left;width: 100%;height: 50px;background: #fffefe;border-top:1px solid #999;border-bottom: 1px solid #999;margin-top: 20px; }
+ .checkout .c_left{float: left;width: 47%;height: 35px;font-size: 12px;color: #555;padding-left: 3%;line-height: 50px;}
+ .checkout .c_left span{color: #c7000a;}
+ .checkout .c_right{float: left;width: 50%;height: 50px;background: #c7000a;color: #fefdfd;text-align: center;font-size: 14px;line-height: 50px;}

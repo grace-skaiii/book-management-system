@@ -1,0 +1,212 @@
+*{
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: background 200;
+  -o-transition: background 200;
+  transition: background 200;
+}
+body{
+  font-size: 14px;
+  color:#444;
+}
+.top-nav{
+  background-color: #eee;
+}
+a{
+  text-decoration: none;
+}
+img{
+  display: block;
+  max-width: 100%;
+}
+.top-nav .item{
+  display: inline-block;
+  padding:6px 10px;
+  color:#666;
+}
+.top-nav .item:hover{
+  color: #333;
+}
+.container{
+  display: block;
+  max-width: 1080px;
+  margin:0 auto;
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.clear-float:after,
+.clear-float:before{
+  content:"";
+  clear:both;
+  display: block;
+  width: 0;
+  height: 0;
+  visibility:hidden;
+}
+.header{
+  padding:20px 0;
+}
+.header .logo{
+  margin-right: 50px;
+}
+.header .search-bar{
+  margin-top: 30px;
+  border: 2px solid #dd182b;
+  background: #dd182b;
+  padding-right: 0px;
+  padding-left: 0px;
+  /* margin-right: 30px; */
+}
+.header .add{
+  margin-top: 30px;
+  border: 2px solid #dd182b;
+  background: #dd182b;
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-left: 50px;
+  /* margin-right: 30px; */
+}
+.header .add button{
+ width: 100%;
+}
+.header .search-bar input , .header .search-bar button , .header .add button{
+  border:0px;
+  padding:5px;
+  outline:0;
+}
+.header .search-bar input:focus , .header .add button:focus{
+  -webkit-box-shadow: inset 0 0 2px 2px rgba(0,0,0,.2);
+  box-shadow: inset 0 0 2px 2px rgba(0,0,0,.2);
+}
+.header .search-bar button,.header .add button{
+  background-color:#dd182b;
+  color:#fff;
+}
+.header .search-bar button:hover,.header .add button:hover{
+  background: #ca0216;
+}
+.header .cart{
+  margin-top: 30px;
+  text-align: center;
+}
+.header .cart a{
+  background: #fff;
+  padding:5px;
+  border:2px solid#eee;
+  color:#dd182b;
+  float:right;
+  width:80%;
+}
+.main-promote{
+  background: #dedede;
+}
+.main-promote .cat{
+  background: #d58c8f;
+  color:#fff;
+}
+.main-promote .item{
+  padding:13px 20px;
+  font-size: 15px;
+}
+.main-promote .item:hover{
+  background: rgba(0,0,0,.2);
+}
+.sub-slide > image{
+  float:left;
+}
+.main-promote .info{
+  padding:15px 6px 5px;
+  line-height: 43px;
+  background: #fff;
+  color:#777;
+  -webkit-box-shadow: 0 0 2px #777;
+  box-shadow: 0 0 2px #777;
+}
+.main-promote .info > *{
+  margin-bottom: 13px;
+}
+.main-promote .avatar{
+  border-radius: 50%;
+  background: #aaa;
+  width:50px;
+  height:50px;
+  float: left;
+  margin-right: 20px;
+}
+.main-promote .anno{
+  line-height: 22px;
+}
+.cat-promote .title:before{
+  content: "";
+  display:inline-block;
+  vertical-align: middle;
+  height:22px;
+  width:5px;
+  background:#dd182b;
+  margin-right: 12px;
+}
+.cat-promote .title{
+  font-size:17px;
+  margin-top: 15px;
+}
+.cat-promote .item{
+  padding:5px;/*布局工具 设置padding 不设置背景色 令子元素设置背景色 可实现切割*/
+}
+.cat-promote .card{
+  height:200px;
+  background: #ccc;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 -1px 2px rgba(0,0,0,.2);
+  box-shadow: 0 -1px 2px rgba(0,0,0,.2);
+}
+.foot{
+  padding:27px 0;
+  line-height:19px;
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+  background: #eee;
+  margin:10px auto;
+}
+.foot a{
+  color:#999;
+}
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-8{
+  float: left;
+  display: block;
+  position: relative;
+}
+.col-1{
+  width:10%;
+}
+.col-2{
+  width:20%;
+}
+.col-3{
+  width:30%;
+}
+.col-4{
+  width:40%;
+}
+.col-5{
+  width:50%;
+}
+.col-6{
+  width:60%;
+}
+.col-8{
+  width:80%;
+}
+.col-9{
+  width:90%;
+}

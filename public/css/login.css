@@ -1,0 +1,28 @@
+.login-title {
+  font-weight: bolder;
+}
+.account-input, .passwd-input {
+  height: 50px;
+  width: 100%;
+  padding: 0 5% 0 5%;
+  font-weight: 300;
+  background: #fff;
+  color: #4d4d4d;
+  border-radius: 25px;
+  border: none;
+  outline:none;
+}
+.passwd-input {
+  width: 85%;
+  border-radius: 25px 0 0 25px;
+}
+.login-button, .register-button {
+  width: 15%;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fbfbfb;
+  background: #4d4d4d;
+  border: none;
+  border-radius: 0 25px 25px 0;
+}
